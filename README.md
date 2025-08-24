@@ -90,27 +90,27 @@ StrokeFinder.io/
 
 ## Screenshots
 
-- Homepage
+- Homepage  
 ![Homepage](readme_assets/homepage.jpg)
 
-- Loading Animations
+- Loading Animations  
 ![Loading Animation](readme_assets/loading.jpg)
 
-- Medical Mode Intro
+- Medical Mode Intro  
 ![Loading Animation](readme_assets/medical_mode.jpg)
 
-- Medical Quiz
+- Medical Quiz  
 ![Loading Animation](readme_assets/medical_quiz.jpg)
 
-- Patient Mode Intro
+- Patient Mode Intro  
 ![Loading Animation](readme_assets/patient_mode.jpg)
 
-- Patient Quiz
+- Patient Quiz  
 ![Loading Animation](readme_assets/patient_quiz.jpg)
 
-- Stroke Present
+- Stroke Present  
 ![Loading Animation](readme_assets/yes_stroke.jpg)
 
-- Stroke Absent
+- Stroke Absent  
 ![Loading Animation](readme_assets/no_stroke.jpg)
 
