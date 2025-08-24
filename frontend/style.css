@@ -1,0 +1,614 @@
+/* 🧱 Page Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url("../images/brain_homepage.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+/* 🔲 Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 50px;
+  z-index: 10;
+  border-bottom: 2px solid white;
+}
+
+/* 🔠 Logo */
+.logo {
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+  transition: text-shadow 0.3s;
+  text-decoration: none;
+}
+.logo:hover {
+  text-shadow: 0 0 10px #b388eb;
+}
+
+/* 👤 Navbar Icons & Button Group */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  right: 110px;
+  position: relative; /* 🔑 Anchors dropdown */
+}
+
+/* 👆 Individual Icons */
+.nav-icons i {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.nav-icons i:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px #b388eb;
+}
+
+/* 🟣 SIGN UP Button */
+.signup-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-weight: bold;
+  padding: 12px 27px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.signup-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 10px #b388eb;
+}
+
+/* 💬 Intro Text */
+.intro {
+  margin-top: 214px;
+  text-align: right;
+  padding-right: 80px;
+}
+.intro h1 {
+  font-size: 30px;
+  margin-top: 10px;
+  right: 25px;
+  transition: all 0.3s ease;
+}
+
+.glow-link {
+  color: white;
+  text-decoration: none;   
+  font-weight: bold;
+  display: inline-block;          
+  transition: all 0.3s ease;
+}
+
+.glow-link:hover {
+  text-shadow:
+    0 0 8px #b388eb,
+    0 0 16px #b388eb,
+    0 0 24px #b388eb;
+  transform: scale(1.05);             
+}
+
+/* 🎯 FIND OUT Button */
+#find-out {
+  position: fixed;
+  bottom: 120px;
+  right: 90px;
+  background: #8e24aa;
+  color: white;
+  border: none;
+  padding: 19px 42px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+#find-out:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 12px #b388eb;
+}
+
+/* 🧩 Dropdown Menu Box */
+.mode-dropdown {
+  position: absolute;
+  top: 50px;      /* ⬇️ Below nav icons */
+  right: 0;       /* ⬅️ Right-align to icon container */
+  width: 200px;
+  background: black;
+  color: white;
+  border: 1px solid #b388eb;
+  border-radius: 10px;
+  padding: 15px 0;
+  box-shadow: 0 0 12px #b388eb;
+  z-index: 999;
+  display: block;
+}
+
+/* 📋 Dropdown Items */
+.mode-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* 📋 Dropdown Items */
+.mode-option {
+  padding: 12px 20px;
+  font-weight: bold;
+  display:block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;       /* 💥 removes underline */
+  color: #b388eb;              /* 💜 purple for text */
+}
+.mode-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px #b388eb;
+}
+.mode-option:visited {
+  color: #b388eb;
+  text-decoration: none;
+}
+
+.dropdown-link {
+  text-decoration: none;
+  color: #b388eb;            /* 💜 purple all the way */
+  display: block;
+  font-weight: bold;
+}
+
+.dropdown-link:hover {
+  text-shadow: 0 0 10px #b388eb;
+}
+
+/* Optional cleanup if visited state gets styled weird */
+.dropdown-link:visited {
+  color: #b388eb;
+  text-decoration: none;
+}
+
+
+/* 👻 Hide Dropdown Initially */
+.hidden {
+  display: none !important;
+}
+
+/* 🎨 Hover Animation Shared */
+button:hover, .signup-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 12px #b388eb, 0 0 20px #b388eb;
+}
+
+/* 🔲 Loading Overlay */
+#loading-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.75);   /* 💨 Faded backdrop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 🧠 Glowing Circle Box */
+.loader-circle {
+  background: black;
+  padding: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #b388eb, 0 0 30px #b388eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.loader-circle i {
+  font-size: 48px;
+  margin-bottom: 15px;
+  color: #b388eb;
+}
+
+#loading-text {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+
+/* PATEINT MODE */
+/* QUESTION MODE */
+body.question-mode {
+  background: url("../images/answer_page.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* 💬 Intro Text */
+.mode-intro {
+  margin-top: 120px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mode-intro h1 {
+  font-size: 40px;      /* Bigger for headline */
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 60px;
+  transition: all 0.3s ease;
+}
+
+.intro-text {
+  font-size: 24px;       /* Slightly smaller for paragraph */
+  color: white;
+  max-width: 700px;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* 🎯 BEGIN ASSESSMENT Button */
+#begin-button {
+  /* Your current styles... */
+  position: fixed;
+  left: 49.8%;
+  bottom: 120px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #8e24aa;
+  color: white;
+  border: none;
+  text-align: center;
+  padding: 19px 42px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  z-index: 1;            /* So it sits above the animation */
+  overflow: hidden;      /* Ensures clean circle bounds */
+}
+
+#begin-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);  /* Glowy tint */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+  z-index: 0;
+}
+
+#begin-button:hover::before {
+  width: 180%;
+  height: 180%;
+}
+
+#begin-button:hover {
+  transform: translateX(-50%) translateY(-4px);
+  box-shadow: 0 0 12px #b388eb;
+}
+
+#bullshit style
+.questionnaire-container {
+      width: 90%;
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      margin-top: 120px;
+    }
+
+    #question-text {
+      background-color: #8e24aa;
+      padding: 28px 34px;
+      border-radius: 16px;
+      font-size: 20px;
+      font-weight:bold;
+      color: white;
+      margin-top: 220px;
+      margin-bottom: 0;
+      box-sizing: border-box;
+      width: 100%;
+      align-items: center;
+      max-width: 800px; 
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #question-options {
+      background-color: white;
+      font-weight: bold;
+      color: #8e24aa;
+      padding: 30px 24px;
+      border-radius: 16px;
+      box-shadow: 0 0 10px #b388eb;
+      text-align: left;
+      margin-top: 0;
+      width: 100%;
+      max-width: 754px; 
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #question-options label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 18px;
+      font-size: 18px;
+      gap: 12px;
+    }
+
+    #question-options input[type="radio"] {
+      accent-color: #b388eb;
+      transform: scale(1.5);
+      cursor: pointer;
+    }
+
+    #next-question-btn {
+      background-color: #8e24aa;
+      color: white;
+      padding: 16px 34px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-right: -50px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px #b388eb;
+}
+    #next-question-btn:hover {
+      transform: translateY(-9px);
+      box-shadow: 0 0 16px #d1a5ff;
+    }
+
+    #prev-question-btn{
+      background-color: #8e24aa;
+      color: white;
+      padding: 16px 34px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-left:-50px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px #b388eb;
+    }
+
+    #prev-question-btn:hover {
+      transform: translateY(-9px);
+      box-shadow: 0 0 16px #d1a5ff;
+    }
+
+.submit-button {
+  background-color: #8e24aa;
+  color: white;
+  padding: 16px 34px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px #b388eb;
+  margin-right: -50px;
+  margin-top: 10px;
+}
+
+#prev-question-final:hover,
+.submit-button:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 0 16px #d1a5ff;
+}
+
+.prev-question-final{
+  background-color: #8e24aa;
+  color: white;
+  padding: 16px 34px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px #b388eb;
+  margin-top: 10px;
+  margin-right: -50px;
+}
+
+.prev-question-final:hover{
+  transform: translateY(-9px);
+  box-shadow: 0 0 16px #d1a5ff;
+}
+
+.button-wrapper.dual-buttons.single-button {
+  justify-content: flex-end;
+}
+
+.final-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 20px auto;
+  max-width: 700px;
+}
+
+.button-wrapper.dual-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 132px;
+  margin-top: 25px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.question-number {
+  position: absolute;
+  top: 125px;
+  right: 650px;
+  width: 60px;
+  height: 60px;
+  background-color: #8e24aa;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.question-number:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 16px #d1a5ff;
+    }
+
+/* Animation classes */
+.swipe-left {
+  animation: swipeOut 0.5s forwards ease-in;
+}
+
+.swipe-in {
+  animation: swipeIn 0.5s forwards ease-out;
+}
+
+/* Keyframes */
+@keyframes swipeOut {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes swipeIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/*Results*/
+.results-container {
+  width: 90%;
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  margin-top: 100px;
+  margin-bottom:0px;
+}
+
+.results-heading {
+  font-size: 36px;
+  margin-top:10px;
+  margin-bottom: 40px;
+  color: white;
+  text-shadow: 0 0 10px #b388eb;
+}
+
+.result-box {
+  background-color: #8e24aa;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  box-shadow: 0 0 10px #b388eb;
+}
+
+.tips-box {
+  background-color: white;
+  color: black;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px white;
+}
+
+.tips-box h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  color: #8e24aa;
+}
+
+.tips-box ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  color: #8e24aa;
+  margin-left: 30px;
+}
+
+.tips-box ul li em {
+  font-style: italic;
+  color: #8e24aa;
+}
+
+
+#retake-btn {
+  background-color: #8e24aa; 
+  color: white;
+  padding: 16px 34px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top:20px;
+  margin-left: 580px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px #b388eb;
+}
+
+  
+#retake-btn:hover {
+transform: translateY(-9px);
+box-shadow: 0 0 16px #d1a5ff;
+}
+
+.mode-note {
+  margin-top: -55px;
+  margin-right:465px;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Patient Mode | StrokeFinder.io</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body class="question-mode">
+
+ <!-- Loading Icon -->   
+<div id="loading-overlay" class="hidden">
+  <div class="loader-circle">
+    <i class="fa-solid fa-user-doctor" style="color: #b388eb;"></i>
+    <p id="loading-text">Loading</p>
+  </div>
+</div>
+
+  <!-- Transparent Nav Bar -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">STROKEFINDER.io</a> 
+  <div class="nav-icons" style="position: relative;">
+    <button class="signup-btn">SIGN UP</button>
+    <i class="fas fa-user-circle" id="profile-icon"></i>
+    <i class="fas fa-bars" id="menu-icon"></i>
+
+    <!-- Contained dropdown -->
+    <div id="mode-dropdown" class="mode-dropdown hidden">
+      <ul>
+        <li class="mode-option"><a href="patient.html" class="dropdown-link">PATIENT MODE</a></li>
+        <li class="mode-option"><a href="medical.html" class="dropdown-link">MEDICAL MODE</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+  <!-- Patient Intro Text -->
+  <div class="mode-intro">
+    <h1>PATIENT MODE</h1>
+    <p class="intro-text"> This mode offers a simple, guided risk check for individuals without
+    access to medical reports. We'll ask easy-to-understand lifestyle
+    questions like smoking habits, age, and daily routine. No need to know
+    your lab values — just answer what you can.</p>
+  </div>
+
+<div class="button-wrapper">
+  <button id="begin-button" onclick="window.location.href='patient questionnaire.html'">BEGIN ASSESSMENT</button>
+</div>
+
+  <script src="patient.js"></script>
+</body>
+</html>

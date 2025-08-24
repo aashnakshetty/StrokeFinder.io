@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Results | StrokeFinder.io</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="question-mode">
+
+ <!-- Loading Icon -->   
+<div id="loading-overlay" class="hidden">
+  <div class="loader-circle">
+    <i class="fa-solid fa-user-doctor" style="color: #b388eb;"></i>
+    <p id="loading-text">Loading</p>
+  </div>
+</div>
+
+  <!-- Transparent Nav Bar -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">STROKEFINDER.io</a> 
+  <div class="nav-icons" style="position: relative;">
+    <button class="signup-btn">SIGN UP</button>
+    <i class="fas fa-user-circle" id="profile-icon"></i>
+    <i class="fas fa-bars" id="menu-icon"></i>
+
+    <!-- Contained dropdown -->
+    <div id="mode-dropdown" class="mode-dropdown hidden">
+      <ul>
+        <li class="mode-option"><a href="patient.html" class="dropdown-link">PATIENT MODE</a></li>
+        <li class="mode-option"><a href="medical.html" class="dropdown-link">MEDICAL MODE</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+   
+    <div class="results-container">
+      <h1 class="results-heading">YOUR RESULTS</h1>
+
+      <div class="result-box">
+        <p id="result-text">Loading...</p>
+      </div>
+
+      <div class="tips-box">
+        <ul>
+          <li><em>Eat balanced meals with plenty of fruits and vegetables</em></li>
+          <li><em>Stay hydrated throughout the day </em></li>
+          <li><em>If you smoke, consider quitting — your body will thank you </em> </li>
+          <li><em>Move your body regularly: walking, stretching, or dancing all count </em> </li>
+        </ul>
+      </div>
+
+      <button id="retake-btn">RETAKE TEST</button>
+      <p class="mode-note">For more defined results, also try: <a href="medical.html">Medical Mode</a>.</p>
+    </div>
+
+    <div id="loading-overlay" class="hidden">
+      <div class="spinner"></div>
+      <p>Analyzing your inputs...</p>
+    </div>
+
+
+  <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    // 🧠 Get prediction result
+    const result = localStorage.getItem("strokePrediction");
+    const resultText = document.getElementById("result-text");
+    const retakeBtn = document.getElementById("retake-btn"); // ✅ ID match
+    const modeNote = document.querySelector(".mode-note");
+
+    console.log("🧠 Stroke prediction received:", result);
+
+    // ✅ Display result safely
+    if (resultText) {
+      resultText.textContent = result || "No result found.";
+    }
+
+    // ✅ Detect mode from localStorage
+    const mode = localStorage.getItem("strokeMode");
+    const isMedical = mode === "medical";
+
+    // ✅ Retake button logic
+    if (retakeBtn) {
+      retakeBtn.addEventListener("click", () => {
+        if (mode === "patient") {
+          window.location.href = "patient.html";
+        } else {
+          window.location.href = "medical.html";
+        }
+      });
+    }
+
+    // ✅ Suggest alternate mode
+    if (modeNote) {
+      modeNote.innerHTML = isMedical
+        ? `For simpler results, also try: <a href="patient.html">Patient Mode</a>.`
+        : `For more defined results, also try: <a href="medical.html">Medical Mode</a>.`;
+    }
+  });
+</script>
+
+</body>
+</html>

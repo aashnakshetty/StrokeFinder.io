@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Patient Mode | StrokeFinder.io</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="question-mode">
+
+ <!-- Loading Icon -->   
+<div id="loading-overlay" class="hidden">
+  <div class="loader-circle">
+    <i class="fa-solid fa-user-doctor" style="color: #b388eb;"></i>
+    <p id="loading-text">Loading</p>
+  </div>
+</div>
+
+  <!-- Transparent Nav Bar -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">STROKEFINDER.io</a> 
+  <div class="nav-icons" style="position: relative;">
+    <button class="signup-btn">SIGN UP</button>
+    <i class="fas fa-user-circle" id="profile-icon"></i>
+    <i class="fas fa-bars" id="menu-icon"></i>
+
+    <!-- Contained dropdown -->
+    <div id="mode-dropdown" class="mode-dropdown hidden">
+      <ul>
+        <li class="mode-option"><a href="patient.html" class="dropdown-link">PATIENT MODE</a></li>
+        <li class="mode-option"><a href="medical.html" class="dropdown-link">MEDICAL MODE</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+  <form id="strokeForm">
+  <div class="questionnaire-container">
+    <div class="question-number"><span id="question-number">Q.1</span></div>
+    <p id="question-text"></p>
+    <div id="question-options"></div>
+
+    <!-- Navigation buttons for Q1-Q8 -->
+    <div class="button-wrapper dual-buttons">
+      <button type="button" id="prev-question-btn">PREV</button>
+      <button type="button" id="next-question-btn">NEXT</button>
+    </div>
+    
+    <!-- Final PREV and SUBMIT only show on last question -->
+    <div class="button-wrapper final-buttons" style="display: none;">
+      <button type="button" class="prev-question-final">PREV</button>
+      <button type="button" id="submit-button" class="submit-button">SUBMIT</button>
+    </div>
+  </div>
+</form>
+
+
+  <!-- 📜 Link external script -->
+  <script src="patient.js"></script>
+</body>
+</html>

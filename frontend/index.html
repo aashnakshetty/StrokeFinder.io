@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>StrokeFinder.io</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+ <!-- Loading Icon -->   
+<div id="loading-overlay" class="hidden">
+  <div class="loader-circle">
+    <i class="fa-solid fa-user-doctor" style="color: #b388eb;"></i>
+    <p id="loading-text">Loading</p>
+  </div>
+</div>
+
+  <!-- Transparent Nav Bar -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">STROKEFINDER.io</a> 
+  <div class="nav-icons" style="position: relative;">
+    <button class="signup-btn">SIGN UP</button>
+    <i class="fas fa-user-circle" id="profile-icon"></i>
+    <i class="fas fa-bars" id="menu-icon"></i>
+
+    <!-- Contained dropdown -->
+    <div id="mode-dropdown" class="mode-dropdown hidden">
+      <ul>
+        <li class="mode-option"><a href="patient.html" class="dropdown-link">PATIENT MODE</a></li>
+        <li class="mode-option"><a href="medical.html" class="dropdown-link">MEDICAL MODE</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+  <!-- Main Intro Text -->
+  <div class="intro">
+    <h1>Stroke affects millions worldwide. <br>
+    Could you be one of them? <br>
+    Choose from  <a href="patient.html" class="glow-link"> Patient Mode </a> or <br>  
+   <a href="medical.html"  class="glow-link"> Medical Mode </a> and begin your 
+   <br> assessment today.</h1>
+  </div>
+
+ 
+<button id="find-out">FIND OUT</button>
+
+  <script>
+  // 🌟 Dropdown Toggle
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.getElementById("menu-icon");
+    const dropdown = document.getElementById("mode-dropdown");
+
+    if (menuIcon && dropdown) {
+      menuIcon.addEventListener("click", () => {
+        dropdown.classList.toggle("hidden");
+      });
+    }
+
+    // 🚀 Loading + Redirect Logic
+    function showLoadingAndRedirect(targetUrl) {
+      const overlay = document.getElementById("loading-overlay");
+      const loadingText = document.getElementById("loading-text");
+
+      if (overlay && loadingText) {
+        overlay.classList.remove("hidden");
+        let count = 0;
+
+        const dotCycle = setInterval(() => {
+          loadingText.textContent = "Loading" + ".".repeat(count % 4);
+          count++;
+        }, 500);
+
+        setTimeout(() => {
+          clearInterval(dotCycle);
+          window.location.href = targetUrl;
+        }, 2500);
+      } else {
+        window.location.href = targetUrl;
+      }
+    }
+
+    // ✨ Navigation Handlers
+    document.querySelector(".logo")?.addEventListener("click", function (e) {
+      e.preventDefault();
+      showLoadingAndRedirect(this.getAttribute("href"));
+    });
+
+    document.getElementById("profile-icon")?.addEventListener("click", function (e) {
+      e.preventDefault();
+      showLoadingAndRedirect("profile.html");
+    });
+
+    document.querySelector(".signup-btn")?.addEventListener("click", function (e) {
+      e.preventDefault();
+      showLoadingAndRedirect("signup.html");
+    });
+
+    document.querySelectorAll(".glow-link, .dropdown-link").forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        showLoadingAndRedirect(this.getAttribute("href"));
+      });
+    });
+
+    // Optional: FIND OUT button triggers dropdown
+    document.getElementById("find-out")?.addEventListener("click", () => {
+      dropdown?.classList.remove("hidden");
+    });
+  });
+</script>
+</body>
+</html>
